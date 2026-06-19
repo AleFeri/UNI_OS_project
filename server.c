@@ -75,8 +75,8 @@ int check_conflicts(Booking *a, Booking *b) {
 
 void append_response(char *dest, char *text) {
     size_t len = strlen(dest);
-    // RESPONSE - 5 because we need to keep the space for the trailing "END\n"
-    if (len < RESPONSE - 5) snprintf(dest + len, RESPONSE - 5 - len, "%s", text);
+    size_t end_len = strlen(MSG_END);
+    if (len < RESPONSE - end_len) snprintf(dest + len, RESPONSE - end_len - len, "%s", text);
 }
 
 void add_booking_row(char *dest, Booking *b) {
